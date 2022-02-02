@@ -11,13 +11,17 @@ func main() {
 	fmt.Printf("Welcome to %v booking application. Total tickets are %v . \n", conferenceName, tickets)
 
 	var userName string
-	var userTickets int
+	var userTickets int 
+	var purchaseRatio float64
+
 	userName = "Ali"
 	userTickets = 10
 	remainingTickets -= uint(userTickets);
+	purchaseRatio = (float64(remainingTickets) / float64(tickets)) * 100
 
 	fmt.Printf("User %v has bought %v tickets. ",userName, userTickets)
 	fmt.Printf("Only %v tickets left. \n", remainingTickets)
+	fmt.Printf("Sold %v pecent of the the tcikets \n", purchaseRatio)
 
 
 
