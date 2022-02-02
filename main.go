@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var conferenceName string = "Go conference"
+	conferenceName := "Go conference"
 	const tickets int = 50
 	// uinit cannot have a negative value 
 	var remainingTickets uint = 50;
