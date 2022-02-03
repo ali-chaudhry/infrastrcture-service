@@ -71,6 +71,20 @@ func main() {
 			break
 		}
 
+		city := "London"
+
+		switch city {
+		case "London":
+			// code for London
+		case "New York":
+			// code for New York city
+		case "Singapor":
+			// code for Singapor city
+		default:
+			// default code
+			fmt.Print("No valid city")
+		}
+
 	}
 
 }
