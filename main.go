@@ -26,10 +26,8 @@ func main() {
 	fmt.Printf("Only %v tickets left. \n", remainingTickets)
 	fmt.Printf("Sold %v pecent of the the tcikets \n", purchaseRatio)
 
-	// for loop
-	// infinite lopp
-
-	for {
+	// conditional for loop
+	for remainingTickets > 0 && len(bookings) < 50 {
 		var firstName string
 		var lastName string
 		var email string
