@@ -28,8 +28,8 @@ func main() {
 
 	// conditional for loop
 	for remainingTickets > 0 && len(bookings) < 50 {
-	
-		firstName, lastName, email, userTickets := getInput();
+
+		firstName, lastName, email, userTickets := getInput()
 		isValidName, isValidEmail, isValidTicketNumbers := validate(firstName, lastName, email, userTickets, remainingTickets)
 
 		if !isValidName {
@@ -52,7 +52,7 @@ func main() {
 		greetUser(firstName, lastName, int(userTickets), email, int(remainingTickets), conferenceName)
 
 		firstNames := getFirstNames(bookings)
-		
+
 		fmt.Printf("These are all our bookings: %v \n", firstNames)
 
 		if remainingTickets == 0 {
@@ -78,7 +78,6 @@ func main() {
 	}
 
 }
-
 
 func getInput() (string, string, string, uint) {
 	var firstName string
@@ -106,12 +105,12 @@ func greetUser(firstName string, lastName string, userTickets int, email string,
 	fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
 }
 
-func getFirstNames(bookings []string)[]string{
-	// alrenate way of declaring 
-	firstNames := []string{} 
+func getFirstNames(bookings []string) []string {
+	// alrenate way of declaring
+	firstNames := []string{}
 	// for each loop  example
-		// _ is used for ignoring index
-		// for index, booking
+	// _ is used for ignoring index
+	// for index, booking
 	for _, booking := range bookings {
 		var names = strings.Fields(booking)
 		firstNames = append(firstNames, names[0])
@@ -119,7 +118,6 @@ func getFirstNames(bookings []string)[]string{
 
 	return firstNames
 }
-
 
 func validate(firstName string, lastName string, email string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
 
