@@ -66,14 +66,8 @@ func main() {
 
 		greetUser(firstName, lastName, int(userTickets), email, int(remainingTickets), conferenceName)
 
-		// for each loop  example
-		// _ is used for ignoring index
-		// for index, booking
-		firstNames := []string{}
-		for _, booking := range bookings {
-			var names = strings.Fields(booking)
-			firstNames = append(firstNames, names[0])
-		}
+		firstNames := getFirstNames(bookings)
+		
 		fmt.Printf("These are all our bookings: %v \n", firstNames)
 
 		if remainingTickets == 0 {
@@ -104,6 +98,21 @@ func greetUser(firstName string, lastName string, userTickets int, email string,
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive confirmation email at %v .\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
 }
+
+func getFirstNames(bookings []string)[]string{
+	// alrenate way of declaring 
+	firstNames := []string{} 
+	// for each loop  example
+		// _ is used for ignoring index
+		// for index, booking
+	for _, booking := range bookings {
+		var names = strings.Fields(booking)
+		firstNames = append(firstNames, names[0])
+	}
+
+	return firstNames
+}
+
 
 func validate(firstName string, lastName string, email string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
 
