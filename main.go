@@ -53,9 +53,9 @@ func main() {
 		fmt.Printf("Thank you %v %v for booking %v tickets. You will receive confirmation email at %v .\n", firstName, lastName, userTickets, email)
 		fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
 
-		// for each loop  example 
-		// _ is used for ignoring index 
-		// for index, booking 
+		// for each loop  example
+		// _ is used for ignoring index
+		// for index, booking
 		firstNames := []string{}
 		for _, booking := range bookings {
 			var names = strings.Fields(booking)
@@ -63,8 +63,12 @@ func main() {
 		}
 		fmt.Printf("These are all our bookings: %v \n", firstNames)
 
+		if remainingTickets == 0 {
+			// end prgram
+			fmt.Println("All tickets are booked")
+			break
+		}
+
 	}
-
-
 
 }
