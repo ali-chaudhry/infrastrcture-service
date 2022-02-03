@@ -52,8 +52,7 @@ func main() {
 		remainingTickets -= userTickets
 		bookings = append(bookings, firstName+"  "+lastName)
 
-		fmt.Printf("Thank you %v %v for booking %v tickets. You will receive confirmation email at %v .\n", firstName, lastName, userTickets, email)
-		fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
+		greetUser(firstName, lastName, int(userTickets), email, int(remainingTickets), conferenceName)
 
 		// for each loop  example
 		// _ is used for ignoring index
@@ -87,4 +86,10 @@ func main() {
 
 	}
 
+}
+
+
+func greetUser(firstName string, lastName string, userTickets int, email string, remainingTickets int, conferenceName string){
+	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive confirmation email at %v .\n", firstName, lastName, userTickets, email)
+		fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
 }
