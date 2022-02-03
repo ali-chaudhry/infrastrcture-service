@@ -45,7 +45,19 @@ func main() {
 		fmt.Println("Enter your tickets:")
 		fmt.Scan(&userTickets)
 
-		if userTickets > remainingTickets {
+		isValidName, isValidEmail, isValidTicketNumbers := validate(firstName, lastName, email, userTickets, remainingTickets)
+
+		if !isValidName {
+			fmt.Printf("FirstName %v or LastName %v is not valid", firstName, lastName)
+			continue
+		}
+
+		if !isValidEmail {
+			fmt.Printf("Email %v is not valid", email)
+			continue
+		}
+
+		if !isValidTicketNumbers {
 			fmt.Printf("Only %v tickets left", remainingTickets)
 			continue
 		}
@@ -88,8 +100,16 @@ func main() {
 
 }
 
-
-func greetUser(firstName string, lastName string, userTickets int, email string, remainingTickets int, conferenceName string){
+func greetUser(firstName string, lastName string, userTickets int, email string, remainingTickets int, conferenceName string) {
 	fmt.Printf("Thank you %v %v for booking %v tickets. You will receive confirmation email at %v .\n", firstName, lastName, userTickets, email)
-		fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
+	fmt.Printf("%v tickets remaining for %v \n", remainingTickets, conferenceName)
+}
+
+func validate(firstName string, lastName string, email string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
+
+	isValidName := len(firstName) >= 2 && len(lastName) >= 2
+	isValidEmail := strings.Contains(email, "@")
+	isValidTicketNumbers := userTickets > 0 && userTickets <= remainingTickets
+
+	return isValidName, isValidEmail, isValidTicketNumbers
 }
