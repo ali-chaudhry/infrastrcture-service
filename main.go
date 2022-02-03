@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"infrastructure-service/helpers"
 )
 
 func main() {
@@ -30,7 +31,7 @@ func main() {
 	for remainingTickets > 0 && len(bookings) < 50 {
 
 		firstName, lastName, email, userTickets := getInput()
-		isValidName, isValidEmail, isValidTicketNumbers := validate(firstName, lastName, email, userTickets, remainingTickets)
+		isValidName, isValidEmail, isValidTicketNumbers := helpers.ValidateUserInput(firstName, lastName, email, userTickets, remainingTickets)
 
 		if !isValidName {
 			fmt.Printf("FirstName %v or LastName %v is not valid", firstName, lastName)
@@ -117,13 +118,4 @@ func getFirstNames(bookings []string) []string {
 	}
 
 	return firstNames
-}
-
-func validate(firstName string, lastName string, email string, userTickets uint, remainingTickets uint) (bool, bool, bool) {
-
-	isValidName := len(firstName) >= 2 && len(lastName) >= 2
-	isValidEmail := strings.Contains(email, "@")
-	isValidTicketNumbers := userTickets > 0 && userTickets <= remainingTickets
-
-	return isValidName, isValidEmail, isValidTicketNumbers
 }
