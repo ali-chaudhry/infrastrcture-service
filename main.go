@@ -28,23 +28,8 @@ func main() {
 
 	// conditional for loop
 	for remainingTickets > 0 && len(bookings) < 50 {
-		var firstName string
-		var lastName string
-		var email string
-		var userTickets uint
-
-		fmt.Println("Enter your first name:")
-		fmt.Scan(&firstName)
-
-		fmt.Println("Enter your last name:")
-		fmt.Scan(&lastName)
-
-		fmt.Println("Enter your email:")
-		fmt.Scan(&email)
-
-		fmt.Println("Enter your tickets:")
-		fmt.Scan(&userTickets)
-
+	
+		firstName, lastName, email, userTickets := getInput();
 		isValidName, isValidEmail, isValidTicketNumbers := validate(firstName, lastName, email, userTickets, remainingTickets)
 
 		if !isValidName {
@@ -92,6 +77,28 @@ func main() {
 
 	}
 
+}
+
+
+func getInput() (string, string, string, uint) {
+	var firstName string
+	var lastName string
+	var email string
+	var userTickets uint
+
+	fmt.Println("Enter your first name:")
+	fmt.Scan(&firstName)
+
+	fmt.Println("Enter your last name:")
+	fmt.Scan(&lastName)
+
+	fmt.Println("Enter your email:")
+	fmt.Scan(&email)
+
+	fmt.Println("Enter your tickets:")
+	fmt.Scan(&userTickets)
+
+	return firstName, lastName, email, userTickets
 }
 
 func greetUser(firstName string, lastName string, userTickets int, email string, remainingTickets int, conferenceName string) {
